@@ -97,9 +97,9 @@ class LtspDic:
 		self.dic_images["images"] = []
 		
 		# Append desktop
-		self.get_ltsp_dic_desktop(aux_dic_images)
+		self.get_ltsp_dic_desktop()
 		
-		
+		'''
 		# Append client
 		aux_dic_images["images"].append(
 			{
@@ -163,7 +163,7 @@ class LtspDic:
 			"errormsg":None
 			}
 		)
-		
+		'''
 		#self.dic_images=aux_dic_images
 		
 		return self.dic_images
