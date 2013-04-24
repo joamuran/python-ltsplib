@@ -111,13 +111,10 @@ class LtspDic:
 	#def get_ltsp_dic
 
 
-
-
-	
-
-
 class LtspTest:
-	
+	'''
+	Class LtspTest : Simple Tests suite for Ltsp image system
+	'''
 	
 	dic_images = {}
 	dic_images["images"] =[]
