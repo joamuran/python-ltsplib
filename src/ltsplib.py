@@ -119,6 +119,9 @@ class LtspDic:
 			}
 		)
 		
+		return aux_dic_images
+	
+	#def get_ltsp_dic
 
 
 	
