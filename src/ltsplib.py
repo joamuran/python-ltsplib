@@ -23,15 +23,11 @@ class LtspDic:
 	'''
 	Class to manage LTSP Dictionaries
 	'''
-	dic_images = {}
-	dic_images["images"] = []
 	
 	def __init__(self):
 		'''
 		Simple init method, that initializes a new Dictionary
 		'''
-		self.dic_images = {}
-		self.dic_images["images"] = []
 		pass	
 	
 	def get_ltsp_dic(self):
@@ -40,8 +36,12 @@ class LtspDic:
 		'''
 		# Dic images
 		# self.dic_images={}
+
+		aux_dic_images={}
+		aux_dic_images["images"] = []
+
 		
-		aux_dic_images = self.dic_images
+		#aux_dic_images = self.dic_images
 		#aux_dic_images["images"] =[]
 		
 		# Append desktop
