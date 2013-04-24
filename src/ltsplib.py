@@ -27,9 +27,6 @@ class LtspInfo:
 	'''
 	
 	
-	
-	
-
 
 class LtspException(Exception):
 	'''
@@ -65,6 +62,7 @@ class LtspDic:
 			return str(LtspInfo.LTSP_IMAGES_PATH+"/"+img_id+".img")
 		else:
 			return None
+	#get_img_str
 	
 	def get_squashfs_str(self,img_id):
 		'''
@@ -74,6 +72,7 @@ class LtspDic:
 			return str(LtspInfo.LTSP_CHROOT_PATH+"/"+img_id+"/")
 		else:
 			return None
+	# get_squashfs_str
 	
 	def get_modification_time(self,img_id):
 		'''
@@ -84,7 +83,7 @@ class LtspDic:
 			return last_time
 		else:
 			return None
-
+	# get_modification_time
 
 	def get_ltsp_dic_desktop(self):
 		'''
@@ -104,9 +103,87 @@ class LtspDic:
 			"errormsg":None
 			}
 		)
+	# get_ltsp_dic_desktop(self):
 		
+	def get_ltsp_dic_client(self):
+		'''
+		Get the dic entry for clients
+		'''
+		self.dic_images["images"].append(
+			{
+			"id":"client",
+			"name": "LliureX Client",
+			"desc": "LliureX Client Description",
+			"img": "lliurex-client.png",
+			"image_file" : self.get_img_str("client"),
+			"squashfs_dir": self.get_squashfs_str("client"),
+			"installed":self.get_modification_time("client"),
+			"lliurex_version":None,
+			"errorcode":None,
+			"errormsg":None
+			}
+		)
+	# get_ltsp_dic_client
 	
+	def get_ltsp_dic_music(self):
+		'''
+		Get the dic entry for music
+		'''
+		self.dic_images["images"].append(
+			{
+			"id":"music",
+			"name": "LliureX Music",
+			"desc": "LliureX Music Description",
+			"img": "lliurex-music.png",
+			"image_file" : self.get_img_str("music"),
+			"squashfs_dir": self.get_squashfs_str("music"),
+			"installed":self.get_modification_time("music"),
+			"lliurex_version":None,
+			"errorcode":None,
+			"errormsg":None
+			}
+		)
+	# get_ltsp_dic_music
 
+	def get_ltsp_dic_pime(self):
+		'''
+		Get the dic entry for Pime
+		'''
+		self.dic_images["images"].append(
+			{
+			"id":"pime",
+			"name": "LliureX Pime",
+			"desc": "LliureX Pime Description",
+			"img": "lliurex-pime.png",
+			"image_file" : self.get_img_str("pime"),
+			"squashfs_dir": self.get_squashfs_str("pime"),
+			"installed":self.get_modification_time("pime"),
+			"lliurex_version":None,
+			"errorcode":None,
+			"errormsg":None
+			}
+		)
+	# get_ltsp_dic_pime
+	
+	def get_ltsp_dic_infantil(self):
+		'''
+		Get the dic entry for infantil
+		'''
+		self.dic_images["images"].append(
+			{
+			"id":"infantil",
+			"name": "LliureX Infantil",
+			"desc": "LliureX Infantil Description",
+			"img": "lliurex-infantil.png",
+			"image_file" : self.get_img_str("infantil"),
+			"squashfs_dir": self.get_squashfs_str("infantil"),
+			"installed":self.get_modification_time("infantil"),
+			"lliurex_version":None,
+			"errorcode":None,
+			"errormsg":None
+			}
+		)
+	# get_ltsp_dic_infantil
 	
 	def get_ltsp_dic(self):
 		'''
@@ -118,12 +195,16 @@ class LtspDic:
 		self.dic_images={}
 		self.dic_images["images"] = []
 		
-		# Append desktop
+		# Append flavours
 		self.get_ltsp_dic_desktop()
+		self.get_ltsp_dic_client()
+		self.get_ltsp_dic_infantil()
+		self.get_ltsp_dic_music()
+		self.get_ltsp_dic_pime()
 		
+		# Return the dictionary
 		return self.dic_images
-	
-	#def get_ltsp_dic
+	# get_ltsp_dic
 
 
 class LtspTest:
@@ -139,7 +220,7 @@ class LtspTest:
 		Simple init method
 		'''
 		pass
-	
+	# __init__
 
 	def test_chroot(self, chroot_dir):
 		'''
@@ -150,7 +231,6 @@ class LtspTest:
 			return True
 		else:
 			return False
-
 	#def test_chroot(self, chroot_dir)
 	
 	def test_error_101(self,ltsp_id):
@@ -161,7 +241,6 @@ class LtspTest:
 			print("Testing the world")
 		except Exception as e:
 			raise LtspException(e)
-		
 		
 	#def test_error_101
 	
