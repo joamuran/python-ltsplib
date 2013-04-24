@@ -10,9 +10,21 @@ class LtspInfo:
 	'''
 	Info class for values
 	'''
+	
 	LTSP_CHROOT_PATH="/opt/ltsp/"
+	'''
+	Default chroot path
+	'''
+	
 	LTSP_IMAGES_PATH="/opt/ltsp/images/"
+	'''
+	Default images path
+	'''
+	
 	LTSP_LAST_TIME="time.time"
+	'''
+	Default last time modification token
+	'''
 	
 
 
