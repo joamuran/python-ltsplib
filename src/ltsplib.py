@@ -28,7 +28,8 @@ class LtspDic:
 		'''
 		Simple init method, that initializes a new Dictionary
 		'''
-		pass	
+		self.dic_images={}
+		self.dic_images["images"]=[]
 	
 	def get_ltsp_dic(self):
 		'''
@@ -123,6 +124,8 @@ class LtspDic:
 			"errormsg":None
 			}
 		)
+		
+		self.dic_images=aux_dic_images
 		
 		return aux_dic_images
 	
