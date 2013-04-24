@@ -97,7 +97,7 @@ class LtspDic:
 		self.dic_images["images"] = []
 		
 		# Append desktop
-		get_ltsp_dic_desktop(aux_dic_images)
+		self.get_ltsp_dic_desktop(aux_dic_images)
 		
 		
 		# Append client
@@ -164,9 +164,9 @@ class LtspDic:
 			}
 		)
 		
-		self.dic_images=aux_dic_images
+		#self.dic_images=aux_dic_images
 		
-		return aux_dic_images
+		return self.dic_images
 	
 	#def get_ltsp_dic
 
