@@ -36,7 +36,14 @@ class LtspTest:
 	#def test_chroot(self, chroot_dir)
 	
 	def test_error_101(self):
-		print("Testing the world")
+		'''
+		Test if img is created under the correct path of ltsp
+		'''
+		try:
+			print("Testing the world")
+		except Exception as e:
+			raise LtspException(e)
+		
 		
 	#def test_error_101
 	
@@ -48,7 +55,7 @@ class LtspTest:
 				if "test_error_"+str(f) == item:
 					try:
 						getattr(self,item)(ltsp_id)
-					except Exception as e:
+					except LtspException as e:
 						print str(e)
 				
 	#def test_all
