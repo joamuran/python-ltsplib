@@ -1,4 +1,11 @@
-python-ltsplib (0.1.1) precise; urgency=low
+python-ltsplib (0.1.2) precise; urgency=low
+
+  * Added more methods
+  * Generate a unique JSON dic for all flavours 
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Wed, 24 Apr 2013 19:17:41 +0200
+
+python-ltsplib (0.1.2) precise; urgency=low
 
   * Updated version
   * Added LtspTest

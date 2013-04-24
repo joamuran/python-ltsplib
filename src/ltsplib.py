@@ -26,6 +26,9 @@ class LtspInfo:
 	Default last time modification token
 	'''
 	
+	
+	
+	
 
 
 class LtspException(Exception):
