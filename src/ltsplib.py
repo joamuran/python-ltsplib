@@ -27,5 +27,25 @@ class LtspTest:
 
 	#def test_chroot(self, chroot_dir)
 	
+	def test_error_101(self):
+		print("Testing the world")
+		
+	#def test_error_101
+	
+	def test_all(self,ltsp_id):
+		
+		# For method in test_error_* execute it!
+		for f in range(200):
+			for item in dir(self):
+				if "test_error_"+str(f) == item:
+					try:
+						getattr(self,item)(ltsp_id)
+					except Exception as e:
+						print str(e)
+				
+	#def test_all
+		
+	
+	
 #class LtspTest
 
