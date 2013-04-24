@@ -89,9 +89,6 @@ class LtspDic:
 			"errormsg":None
 			}
 		)
-		#d1=dict(d1.items()+d2.items())
-		
-		
 		
 	
 
@@ -108,73 +105,6 @@ class LtspDic:
 		
 		# Append desktop
 		self.get_ltsp_dic_desktop()
-		
-		'''
-		# Append client
-		aux_dic_images["images"].append(
-			{
-			"id": "client",
-			"name": "LliureX Client",
-			"desc": "LliureX Client description",
-			"img": "lliurex-client.png",
-			"image_file":"/opt/ltsp/images/llx-client.img",
-			"squashfs_dir":"/opt/ltsp/llx-client/",
-			"installed":time.time(),
-			"lliurex_version":"lliurex, cdd, edu, class, gclient",
-			"errorcode":None,
-			"errormsg":None
-			}
-		)
-		
-		# Append infantil
-		aux_dic_images["images"].append(
-			{
-			"id": "infantil",
-			"name": "LliureX Infantil",
-			"desc": "LliureX Infantil description",
-			"img": "lliurex-infantil.png",
-			"image_file":"/opt/ltsp/images/llx-infantil.img",
-			"squashfs_dir":"/opt/ltsp/llx-infantil/",
-			"installed":time.time()-10000000 ,
-			"lliurex_version":None,
-			"errorcode":1,
-			"errormsg":"No more porn in internet"
-			}
-		)
-		
-		# Append musica
-		aux_dic_images["images"].append(
-			{
-			"id": "musica",
-			"name": "LliureX Musica",
-			"desc": "LliureX Musica description",
-			"img": "lliurex-musica.png",
-			"image_file":None,
-			"squashfs_dir":"/opt/ltsp/llx-musica/",
-			"installed":time.time(),
-			"lliurex_version":None,
-			"errorcode":101,
-			"errormsg":"This is not the ltsp are you looking for"
-			}
-		)
-		
-		# Append pime
-		aux_dic_images["images"].append(
-			{
-			"id": "pime",
-			"name": "LliureX Pime",
-			"desc": "LliureX Pime description",
-			"img": "lliurex-pime.png",
-			"image_file":"/opt/ltsp/images/llx-pime.img",
-			"squashfs_dir":"/opt/ltsp/llx-pime/",
-			"installed":time.time(),
-			"lliurex_version":None,
-			"errorcode":None,
-			"errormsg":None
-			}
-		)
-		'''
-		#self.dic_images=aux_dic_images
 		
 		return self.dic_images
 	
