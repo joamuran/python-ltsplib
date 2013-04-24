@@ -37,6 +37,7 @@ class LtspDic:
 		Returns a simple dictionary with LTSP images information
 		'''
 		# Dic images
+		self.dic_images={}
 		aux_dic_images = self.dic_images
 		
 		
