@@ -42,7 +42,7 @@ class LtspDic:
 		self.dic_images={}
 		
 		aux_dic_images = self.dic_images
-		
+		aux_dic_images["images"] =[]
 		
 		# Append desktop
 		aux_dic_images["images"].append(
