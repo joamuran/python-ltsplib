@@ -4,6 +4,7 @@ import sys
 import glob
 import os
 import string
+import time
 
 
 class LtspException(Exception):
