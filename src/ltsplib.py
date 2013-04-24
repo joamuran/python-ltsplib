@@ -21,9 +21,9 @@ class LtspTest:
 		besides, it seems like a chroot.
 		'''
 		if os.path.isdir(chroot_dir):
-			return {'status': True, 'msg':'[N4dChroot] Directory existent'}
+			return True
 		else:
-			return {'status': False, 'msg':'[N4dChroot] Directory not existent'}
+			return False
 
 	#def test_chroot(self, chroot_dir)
 	
