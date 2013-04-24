@@ -6,7 +6,7 @@ import os
 import string
 
 
-class ltspTest:
+class LtspTest:
 	
 	def __init__(self):
 		'''
@@ -27,5 +27,5 @@ class ltspTest:
 
 	#def test_chroot(self, chroot_dir)
 	
-#class ltspTest
+#class LtspTest
 
