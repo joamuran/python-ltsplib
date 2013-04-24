@@ -223,6 +223,19 @@ class LtspCommands:
 		else:
 			return None
 	# def run_lliurex_version
+	
+	def run_custom_command(self,path,command):
+		'''
+		Run the custom command at the chosen chroot path
+		'''
+		if (self.prepare_chroot_for_run(path)):
+			output=subprocess.check_output(["chroot",path,command])
+			self.umount_chroot(path)
+			return output
+		else:
+			return None
+	# def run_custom_command
+	
 
 	def prepare_chroot_for_run(self,chroot_dir):
 		'''
