@@ -6,6 +6,14 @@ import os
 import string
 import time
 
+class LtspInfo:
+	'''
+	Info class for values
+	'''
+	LTSP_CHROOT_PATH="/opt/ltsp/"
+	LTSP_IMAGES_PATH="/opt/ltsp/images/"
+	
+
 
 class LtspException(Exception):
 	'''
@@ -30,6 +38,53 @@ class LtspDic:
 		'''
 		self.dic_images={}
 		self.dic_images["images"]=[]
+
+
+	def get_img_str(self, img_id):
+		'''
+		Get image string path 
+		'''
+		
+		if os.path.exists(LtspInfo.LTSP_IMAGES_PATH+"/"+img_id+".img"):
+			return str(LtspInfo.LTSP_IMAGES_PATH+"/"+img_id+".img")
+		else:
+			return None
+	
+	def get_squashfs_str(self,img_id):
+		'''
+		Get squashfs string path
+		'''
+		if os.path.exists(LtspInfo.LTSP_CHROOT_PATH+"/"+img_id+"/"):
+			return str(LtspInfo.LTSP_CHROOT_PATH+"/"+img_id+"/")
+		else:
+			return None
+		
+	
+
+	def get_ltsp_dic_desktop(self):
+		'''
+		Get the dic entry for desktops
+		'''
+		self.dic_images["images"].append(
+			{
+			"id":"desktop",
+			"name": "LliureX Desktop",
+			"desc": "LliureX Desktop Description",
+			"img": "lliurex-escriptori.png",
+			"image_file" : self.get_img_str(desktop),
+			"squashfs_dir": self.get_squashfs_str(desktop),
+			"installed":None,
+			"lliurex_version":None,
+			"errorcode":None,
+			"errormsg":None
+			}
+		)
+		#d1=dict(d1.items()+d2.items())
+		
+		
+		
+	
+
 	
 	def get_ltsp_dic(self):
 		'''
@@ -38,28 +93,12 @@ class LtspDic:
 		# Dic images
 		# self.dic_images={}
 
-		aux_dic_images={}
-		aux_dic_images["images"] = []
-
-		
-		#aux_dic_images = self.dic_images
-		#aux_dic_images["images"] =[]
+		self.dic_images={}
+		self.dic_images["images"] = []
 		
 		# Append desktop
-		aux_dic_images["images"].append(
-			{
-			"id": "desktop",
-			"name": "LliureX Desktop",
-			"desc": "LliureX Desktop description",
-			"img": "lliurex-escriptori.png",
-			"image_file":"/opt/ltsp/images/llx-desktop.img",
-			"squashfs_dir":"/opt/ltsp/llx-desktop/",
-			"installed":None,
-			"lliurex_version":None,
-			"errorcode":None,
-			"errormsg":None
-			}
-		)
+		get_ltsp_dic_desktop(aux_dic_images)
+		
 		
 		# Append client
 		aux_dic_images["images"].append(
