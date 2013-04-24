@@ -24,14 +24,14 @@ class LtspDic:
 	Class to manage LTSP Dictionaries
 	'''
 	dic_images = {}
-
+	dic_images["images"] = []
 	
 	def __init__(self):
 		'''
 		Simple init method, that initializes a new Dictionary
 		'''
-		dic_images = {}
-		dic_images["images"] = []
+		self.dic_images = {}
+		self.dic_images["images"] = []
 		pass	
 	
 	def get_ltsp_dic(self):
@@ -39,7 +39,7 @@ class LtspDic:
 		Returns a simple dictionary with LTSP images information
 		'''
 		# Dic images
-		self.dic_images={}
+		# self.dic_images={}
 		
 		aux_dic_images = self.dic_images
 		aux_dic_images["images"] =[]
