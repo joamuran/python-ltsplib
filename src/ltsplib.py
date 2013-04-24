@@ -6,6 +6,14 @@ import os
 import string
 
 
+class LtspException(Exception):
+	'''
+	Custom exception class
+	'''
+	def __init__(self, message):
+		self.message = message
+
+
 class LtspTest:
 	
 	def __init__(self):
