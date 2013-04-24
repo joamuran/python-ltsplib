@@ -1,3 +1,13 @@
+python-ltsplib (0.1.1) precise; urgency=low
+
+  * Updated version
+  * Added LtspTest
+  * Added LtspDic
+  * Added LtspException
+  * Added LtspInfo 
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Wed, 24 Apr 2013 14:38:29 +0200
+
 python-ltsplib (0.1) precise; urgency=low
 
   * Initial release
