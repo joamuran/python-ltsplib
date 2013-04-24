@@ -5,6 +5,7 @@ import glob
 import os
 import string
 import time
+import subprocess
 
 class LtspInfo:
 	'''
@@ -205,6 +206,67 @@ class LtspDic:
 		# Return the dictionary
 		return self.dic_images
 	# get_ltsp_dic
+
+class LtspCommands:
+	
+	'''
+	Commands execution on ltsp chroots
+	'''
+	def run_lliurex_version(self,path):
+		'''
+		Run the lliurex-version command at the chosen chroot path
+		'''
+		if (self.prepare_chroot_for_run(path)):
+			lliurex_version=subprocess.check_output(["chroot",path,"lliurex-version"])
+			self.umount_chroot(path)
+			return lliurex_version
+		else:
+			return None
+	# def run_lliurex_version
+
+	def prepare_chroot_for_run(self,chroot_dir):
+		'''
+		Prepare chroot to run commands
+		mounting some directories:
+			* /proc/
+			* /sys/
+		'''
+		try:
+			# Mount /proc
+			ret=subprocess.check_output(["mount","-o","bind","/proc",chroot_dir+"/proc"])
+			# Mount /sys
+			ret=subprocess.check_output(["mount","-o","bind","/sys",chroot_dir+"/sys"])
+			# Mount /dev
+			ret=subprocess.check_output(["mount","-o","bind","/dev",chroot_dir+"/dev"])
+			# Mount /dev/pts
+			ret=subprocess.check_output(["mount","-o","bind","/dev/pts",chroot_dir+"/dev/pts"])
+			return True
+		except Exception as e:
+			print("LtspCommands: Not mounted " + str(chroot_dir))
+			return False		
+	#def prepare_chroot_for_run(self,chroot)
+		
+	def umount_chroot(self,chroot_dir):
+		'''
+		Umount system directories
+		now with -lazy, 
+		TODO:
+			test if it is mounted already
+		'''
+		if not self.test_chroot(chroot_dir)["status"] :
+			# If not a directory...you can't do nothing more.
+			return False
+		else:
+			# Mount /proc
+			ret=subprocess.check_output(["umount","-l",chroot_dir+"/proc"])
+			# Mount /sys
+			ret=subprocess.check_output(["umount","-l",chroot_dir+"/sys"])
+			# Mount /dev
+			ret=subprocess.check_output(["umount","-l",chroot_dir+"/dev"])
+			# Mount /dev/pts
+			ret=subprocess.check_output(["umount","-l",chroot_dir+"/dev/pts"])
+			return True
+	#def umount_chroot
 
 
 class LtspTest:
