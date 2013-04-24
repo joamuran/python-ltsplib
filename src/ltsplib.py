@@ -31,7 +31,7 @@ class LtspDic:
 		'''
 		pass	
 	
-	get_ltsp_dic(self):
+	def get_ltsp_dic(self):
 		'''
 		Returns a simple dictionary with LTSP images information
 		'''
