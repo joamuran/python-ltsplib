@@ -18,7 +18,118 @@ class LtspException(Exception):
 		self.Errors = Errors
 
 
+class LtspDic:
+	'''
+	Class to manage LTSP Dictionaries
+	'''
+	dic_images = {}
+	dic_images["images"] = []
+	
+	def __init__(self):
+		'''
+		Simple init method, that initializes a new Dictionary
+		'''
+		pass	
+	
+	get_ltsp_dic(self):
+		'''
+		Returns a simple dictionary with LTSP images information
+		'''
+		# Dic images
+		aux_dic_images = self.dic_images
+		
+		
+		# Append desktop
+		aux_dic_images["images"].append(
+			{
+			"id": "desktop",
+			"name": "LliureX Desktop",
+			"desc": "LliureX Desktop description",
+			"img": "lliurex-escriptori.png",
+			"image_file":"/opt/ltsp/images/llx-desktop.img",
+			"squashfs_dir":"/opt/ltsp/llx-desktop/",
+			"installed":None,
+			"lliurex_version":None,
+			"errorcode":None,
+			"errormsg":None
+			}
+		)
+		
+		# Append client
+		aux_dic_images["images"].append(
+			{
+			"id": "client",
+			"name": "LliureX Client",
+			"desc": "LliureX Client description",
+			"img": "lliurex-client.png",
+			"image_file":"/opt/ltsp/images/llx-client.img",
+			"squashfs_dir":"/opt/ltsp/llx-client/",
+			"installed":time.time(),
+			"lliurex_version":"lliurex, cdd, edu, class, gclient",
+			"errorcode":None,
+			"errormsg":None
+			}
+		)
+		
+		# Append infantil
+		aux_dic_images["images"].append(
+			{
+			"id": "infantil",
+			"name": "LliureX Infantil",
+			"desc": "LliureX Infantil description",
+			"img": "lliurex-infantil.png",
+			"image_file":"/opt/ltsp/images/llx-infantil.img",
+			"squashfs_dir":"/opt/ltsp/llx-infantil/",
+			"installed":time.time()-10000000 ,
+			"lliurex_version":None,
+			"errorcode":1,
+			"errormsg":"No more porn in internet"
+			}
+		)
+		
+		# Append musica
+		aux_dic_images["images"].append(
+			{
+			"id": "musica",
+			"name": "LliureX Musica",
+			"desc": "LliureX Musica description",
+			"img": "lliurex-musica.png",
+			"image_file":None,
+			"squashfs_dir":"/opt/ltsp/llx-musica/",
+			"installed":time.time(),
+			"lliurex_version":None,
+			"errorcode":101,
+			"errormsg":"This is not the ltsp are you looking for"
+			}
+		)
+		
+		# Append pime
+		aux_dic_images["images"].append(
+			{
+			"id": "pime",
+			"name": "LliureX Pime",
+			"desc": "LliureX Pime description",
+			"img": "lliurex-pime.png",
+			"image_file":"/opt/ltsp/images/llx-pime.img",
+			"squashfs_dir":"/opt/ltsp/llx-pime/",
+			"installed":time.time(),
+			"lliurex_version":None,
+			"errorcode":None,
+			"errormsg":None
+			}
+		)
+		
+
+
+	
+	
+
+
 class LtspTest:
+	
+	
+	dic_images = {}
+	dic_images["images"] =[]
 	
 	def __init__(self):
 		'''
@@ -39,7 +150,7 @@ class LtspTest:
 
 	#def test_chroot(self, chroot_dir)
 	
-	def test_error_101(self):
+	def test_error_101(self,ltsp_id):
 		'''
 		Test if img is created under the correct path of ltsp
 		'''
