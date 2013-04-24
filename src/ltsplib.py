@@ -12,6 +12,7 @@ class LtspInfo:
 	'''
 	LTSP_CHROOT_PATH="/opt/ltsp/"
 	LTSP_IMAGES_PATH="/opt/ltsp/images/"
+	LTSP_LAST_TIME="time.time"
 	
 
 
@@ -58,8 +59,17 @@ class LtspDic:
 			return str(LtspInfo.LTSP_CHROOT_PATH+"/"+img_id+"/")
 		else:
 			return None
-		
 	
+	def get_modification_time(self,img_id):
+		'''
+		Get the last modification time
+		'''
+		if os.path.exists(LtspInfo.LTSP_CHROOT_PATH+"/"+img_id+"/"+LtspInfo.LTSP_LAST_TIME):
+			last_time = open(LtspInfo.LTSP_CHROOT_PATH+"/"+img_id+"/"+LtspInfo.LTSP_LAST_TIME,'r').read()
+			return last_time
+		else:
+			return None
+
 
 	def get_ltsp_dic_desktop(self):
 		'''
@@ -73,7 +83,7 @@ class LtspDic:
 			"img": "lliurex-escriptori.png",
 			"image_file" : self.get_img_str("desktop"),
 			"squashfs_dir": self.get_squashfs_str("desktop"),
-			"installed":None,
+			"installed":self.get_modification_time("desktop"),
 			"lliurex_version":None,
 			"errorcode":None,
 			"errormsg":None
