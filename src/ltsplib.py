@@ -10,8 +10,12 @@ class LtspException(Exception):
 	'''
 	Custom exception class
 	'''
-	def __init__(self, message):
-		self.message = message
+	def __init__(self, message, Errors):
+		# Call the base class constructor with the parameters it needs
+		Exception.__init__(self, message)
+
+		# Now for your custom code...
+		self.Errors = Errors
 
 
 class LtspTest:
