@@ -75,6 +75,23 @@ class LtspDic:
 			return None
 	# get_squashfs_str
 	
+	def set_modification_time(self,img_id):
+		'''
+		Set the current modification time at img_id
+		'''
+		if os.path.exists(LtspInfo.LTSP_CHROOT_PATH+"/"+img_id+"/"):
+			time=time.time()
+			linestring = open('filename.txt', 'r').read()
+			f = open(LtspInfo.LTSP_CHROOT_PATH+"/"+img_id+"/"+LtspInfo.LTSP_LAST_TIME,'w')
+			f.write(linestring)
+			f.close()
+			return linestring
+		else:
+			return None
+		
+	
+	
+	
 	def get_modification_time(self,img_id):
 		'''
 		Get the last modification time
@@ -135,7 +152,7 @@ class LtspDic:
 			"id":"music",
 			"name": "LliureX Music",
 			"desc": "LliureX Music Description",
-			"img": "lliurex-music.png",
+			"img": "lliurex-musica.png",
 			"image_file" : self.get_img_str("music"),
 			"squashfs_dir": self.get_squashfs_str("music"),
 			"installed":self.get_modification_time("music"),
