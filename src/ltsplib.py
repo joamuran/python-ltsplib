@@ -345,7 +345,7 @@ class LtspTest:
 					try:
 						getattr(self,item)(ltsp_id)
 					except LtspException as e:
-						print str(e)
+						print(str(e))
 				
 	#def test_all
 		
