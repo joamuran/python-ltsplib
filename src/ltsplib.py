@@ -424,7 +424,7 @@ class LTSPX11Environment:
 			self.RemoveXephyrProcess(self.display)
 			
 		except Exception as e:
-			print "Exception killing:"+str(e)
+			print ("Exception killing:"+str(e))
 			return {'status': False, 'msg':'[N4dChrootAdmin] '+str(e)}
 	#def remove_X11_applications_on_chroot(self,chroot_dir)
 	
