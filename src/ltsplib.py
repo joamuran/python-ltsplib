@@ -404,7 +404,7 @@ class LTSPX11Environment:
 			pid=subprocess.Popen(["Xephyr","-ac","-screen",self.screen,self.display])
 			subprocess.Popen(["metacity", "--display",self.display])
 			# pause to wait metacity launches
-			time.sleep(1) 
+			#time.sleep(1) 
 			return pid
 			
 		except Exception as e:
