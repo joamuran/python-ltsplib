@@ -8,7 +8,7 @@ Standards-Version: 3.9.3
 
 Package: python-ltsplib
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}, 
+Depends: ${misc:Depends}, ${python:Depends}, xserver-xephyr 
 Description: Python library to parse and manage ltsp images
  This is a simple package to provides  a tests for ltsp images building 
  system.
