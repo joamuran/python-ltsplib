@@ -8,7 +8,7 @@ Standards-Version: 3.9.3
 
 Package: python-ltsplib
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}
+Depends: ${misc:Depends}, ${python:Depends}, 
 Description: Python library to parse and manage ltsp images
  This is a simple package to provides  a tests for ltsp images building 
  system.
@@ -16,7 +16,7 @@ Description: Python library to parse and manage ltsp images
  
 Package: python3-ltsplib
 Architecture: all
-Depends: ${misc:Depends}, ${python3:Depends}
+Depends: ${misc:Depends}, ${python3:Depends}, xserver-xephyr
 Description: Python 3 library to parse and manage gettext catalogs
  This is a simple package to provides  a tests for ltsp images building 
  system.
