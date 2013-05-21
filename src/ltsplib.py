@@ -6,6 +6,7 @@ import os
 import string
 import time
 import subprocess
+import signal
 
 class LtspInfo:
 	'''
@@ -353,3 +354,78 @@ class LtspTest:
 	
 #class LtspTest
 
+
+
+class LTSPX11Environment:
+	'''
+	Displays a graphical window to launch X applications into chroot
+	'''
+	
+	display=":42"
+	screen="800x600"
+
+	def __init__(self, display, screen):
+		self.display=display
+		self.screen=screen
+		pass	
+	
+
+	def RemoveXephyrProcess(self, str_display):
+		'''
+		Removes all instances running on display
+		'''
+		
+		display=str_display[1:]
+		# Check if Xephir is running on :display
+		fname='/tmp/.X'+display+'-lock'
+		if (os.path.isfile(fname)):
+			print ("File "+fname+" exists")
+			f = open(fname, 'r')
+			for line in f:
+				if (os.path.exists("/proc/"+line.strip())):
+					print ("Xephir is running on :"+display)
+					os.kill(int(line.strip()), signal.SIGTERM)
+				else:
+					print("File does not exists")
+			os.remove(fname)
+			
+	#def RemoveXephyrProcess():
+	
+	
+	def prepare_X11_applications_on_chroot(self):
+		'''
+		Prepare a X11 environment to run graphical apps 
+		'''
+		import time
+		try:
+			# Check if Xephir is running on :display. If so, remove it
+			self.RemoveXephyrProcess(self.display)
+			# Display on display
+			pid=subprocess.Popen(["Xephyr","-ac","-screen",self.screen,self.display])
+			subprocess.Popen(["metacity", "--display",self.display])
+			# pause to wait metacity launches
+			time.wait(1) 
+			return pid
+			
+		except Exception as e:
+			return {'status': False, 'msg':'[LTSPX11Environment] '+str(e)}
+
+	#def prepare_X11_applications_on_chroot(self,chroot_dir)
+	
+	def remove_X11_applications_on_chroot(self):
+		'''
+		Kill Xephir Process
+		'''
+		
+		import os
+		import signal
+		
+		try:
+			self.RemoveXephyrProcess(self.display)
+			
+		except Exception as e:
+			print "Exception killing:"+str(e)
+			return {'status': False, 'msg':'[N4dChrootAdmin] '+str(e)}
+	#def remove_X11_applications_on_chroot(self,chroot_dir)
+	
+#class LTSPX11Environment
