@@ -401,7 +401,8 @@ class LTSPX11Environment:
 			# Check if Xephir is running on :display. If so, remove it
 			self.RemoveXephyrProcess(self.display)
 			# Display on display
-			pid=subprocess.Popen(["Xephyr","-ac","-screen",self.screen,self.display])
+			#pid=subprocess.Popen(["Xephyr","-ac","-screen",self.screen,self.display])
+			pid=subprocess.Popen(["Xephyr","-ac","-screen",self.screen,"-br", "2>", "/dev/null", self.display])
 			subprocess.Popen(["metacity", "--display",self.display])
 			# pause to wait metacity launches
 			#time.sleep(1) 
